@@ -106,12 +106,12 @@ function Offer(): JSX.Element {
                 €120
               </b>
               <span className="offer__price-text">
-             night
+            night
               </span>
             </div>
             <div className="offer__inside">
               <h2 className="offer__inside-title">
-                What's inside
+                Whats inside
               </h2>
               <ul className="offer__inside-list">
                 <li className="offer__inside-item">
@@ -397,7 +397,7 @@ function Offer(): JSX.Element {
                       €80
                     </b>
                     <span className="place-card__price-text">
-                  / night
+                  /night
                     </span>
                   </div>
                   <button
@@ -457,7 +457,7 @@ function Offer(): JSX.Element {
                       €132
                     </b>
                     <span className="place-card__price-text">
-                  / night
+                  /night
                     </span>
                   </div>
                   <button
@@ -522,7 +522,7 @@ function Offer(): JSX.Element {
                       €180
                     </b>
                     <span className="place-card__price-text">
-                  / night
+                  /night
                     </span>
                   </div>
                   <button

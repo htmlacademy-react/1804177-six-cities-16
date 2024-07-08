@@ -45,7 +45,7 @@ function Favorites(): JSX.Element {
                           €180
                         </b>
                         <span className="place-card__price-text">
-                      / night
+                      /night
                         </span>
                       </div>
                       <button
@@ -105,7 +105,7 @@ function Favorites(): JSX.Element {
                           €80
                         </b>
                         <span className="place-card__price-text">
-                      / night
+                      /night
                         </span>
                       </div>
                       <button
@@ -181,7 +181,7 @@ function Favorites(): JSX.Element {
                           €180
                         </b>
                         <span className="place-card__price-text">
-                      / night
+                      /night
                         </span>
                       </div>
                       <button

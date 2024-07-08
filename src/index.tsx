@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app.tsx';
-
-const Settings = {
-  NumberOffers: 3,
-} as const;
+import {Setting} from './components/const.ts';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,7 +10,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App
-      NumberOffers = {Settings.NumberOffers}
+      numberOffers = {Setting.NumberOffers}
     />
   </React.StrictMode>
 );

@@ -1,10 +1,10 @@
 import Card from '../../components/card.tsx';
 
 type MainScreenProps = {
-  NumberOffers: number;
+  numberOffers: number;
 }
 
-function MainScreen({NumberOffers}: MainScreenProps): JSX.Element {
+function MainScreen({numberOffers}: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -22,7 +22,7 @@ function MainScreen({NumberOffers}: MainScreenProps): JSX.Element {
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                    <span className="header__favorite-count">{NumberOffers}</span>
+                    <span className="header__favorite-count">{numberOffers}</span>
                   </a>
                 </li>
                 <li className="header__nav-item">

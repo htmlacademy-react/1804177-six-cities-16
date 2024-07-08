@@ -1,14 +1,12 @@
 import MainScreen from '../../pages/main-screen/main-screen.tsx';
 
 type AppScreenProps = {
-  NumberOffers: number;
+  numberOffers: number;
 }
 
-function App({NumberOffers}: AppScreenProps): JSX.Element {
+function App({numberOffers}: AppScreenProps): JSX.Element {
   return (
-    <MainScreen
-      NumberOffers = {NumberOffers}
-    />
+    <MainScreen numberOffers = {numberOffers}/>
   );
 }
 
