@@ -6,7 +6,7 @@ function NotFound(): JSX.Element {
       <div className="error-container">
         <h1 className="error-title">Error 404 - Page not found</h1>
         <p className="error-message">
-          I think you're lost! The requested page was not found.
+          I think you are lost! The requested page was not found.
         </p>
         <p className="error-message">
           Go back to the
