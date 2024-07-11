@@ -1,10 +1,10 @@
-import Card from '../../components/card.tsx';
+import Card, {CardProps} from '../../components/card.tsx';
 
 type MainScreenProps = {
-  numberOffers: number;
+  dataOffers: CardProps[]
 }
 
-function MainScreen({numberOffers}: MainScreenProps): JSX.Element {
+function MainScreen({dataOffers}: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -22,7 +22,7 @@ function MainScreen({numberOffers}: MainScreenProps): JSX.Element {
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                    <span className="header__favorite-count">{numberOffers}</span>
+                    <span className="header__favorite-count">3</span>
                   </a>
                 </li>
                 <li className="header__nav-item">
@@ -78,7 +78,7 @@ function MainScreen({numberOffers}: MainScreenProps): JSX.Element {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">312 places to stay in Amsterdam</b>
+              <b className="places__found">{dataOffers.length} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -95,11 +95,9 @@ function MainScreen({numberOffers}: MainScreenProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {dataOffers.map((item) => {
+                  return <Card key={item.id} data={item}/>
+                })}
               </div>
             </section>
             <div className="cities__right-section">
