@@ -1,25 +1,25 @@
 export type CardProps = {
-  id: string
-  title: string
-  type: string
-  price: number
+  id: string;
+  title: string;
+  type: string;
+  price: number;
   city: {
-    name: string
+    name: string;
     location: {
-      latitude: number
-      longitude: number
-      zoom: number
-    }
-  }
+      latitude: number;
+      longitude: number;
+      zoom: number;
+    };
+  };
   location: {
-    latitude: number
-    longitude: number
-    zoom: number
-  }
-  isFavorite: boolean
-  isPremium: boolean
-  rating: number
-  previewImage: string
+    latitude: number;
+    longitude: number;
+    zoom: number;
+  };
+  isFavorite: boolean;
+  isPremium: boolean;
+  rating: number;
+  previewImage: string;
 }
 
 function Card({data}: {data: CardProps }): JSX.Element {
@@ -31,7 +31,7 @@ function Card({data}: {data: CardProps }): JSX.Element {
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200"
-               alt="Place image"
+            alt="Place image"
           />
         </a>
       </div>

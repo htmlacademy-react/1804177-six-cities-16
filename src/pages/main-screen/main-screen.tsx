@@ -1,7 +1,7 @@
 import Card, {CardProps} from '../../components/card.tsx';
 
 type MainScreenProps = {
-  dataOffers: CardProps[]
+  dataOffers: CardProps[];
 }
 
 function MainScreen({dataOffers}: MainScreenProps): JSX.Element {
@@ -95,9 +95,7 @@ function MainScreen({dataOffers}: MainScreenProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {dataOffers.map((item) => {
-                  return <Card key={item.id} data={item}/>
-                })}
+                {dataOffers.map((item) => <Card key={item.id} data={item}/>)}
               </div>
             </section>
             <div className="cities__right-section">
