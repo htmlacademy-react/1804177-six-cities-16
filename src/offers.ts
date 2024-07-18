@@ -1,4 +1,4 @@
-export const DATA = [
+export const Offers = [
   {
     'id': '6af6f711-c28d-4121-82cd-e0b462a27f00',
     'title': 'Beautiful & luxurious studio at great location',
@@ -16,8 +16,8 @@ export const DATA = [
       'longitude': 4.673877537499948,
       'zoom': 8
     },
-    'isFavorite': false,
-    'isPremium': false,
+    'isFavorite': true,
+    'isPremium': true,
     'rating': 4,
     'previewImage': 'https://url-to-image/image.png'
   },
@@ -39,7 +39,7 @@ export const DATA = [
       'zoom': 8
     },
     'isFavorite': false,
-    'isPremium': false,
+    'isPremium': true,
     'rating': 2,
     'previewImage': 'https://url-to-image/image.png'
   },
@@ -60,7 +60,7 @@ export const DATA = [
       'longitude': 4.673877537499948,
       'zoom': 8
     },
-    'isFavorite': false,
+    'isFavorite': true,
     'isPremium': false,
     'rating': 3,
     'previewImage': 'https://url-to-image/image.png'
@@ -82,7 +82,7 @@ export const DATA = [
       'longitude': 4.673877537499948,
       'zoom': 8
     },
-    'isFavorite': false,
+    'isFavorite': true,
     'isPremium': false,
     'rating': 4,
     'previewImage': 'https://url-to-image/image.png'
@@ -105,7 +105,7 @@ export const DATA = [
       'zoom': 8
     },
     'isFavorite': false,
-    'isPremium': false,
+    'isPremium': true,
     'rating': 5,
     'previewImage': 'https://url-to-image/image.png'
   }

@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import {AppRoute} from '../const.ts';
 
 function NotFound(): JSX.Element {
   return (
@@ -10,7 +11,7 @@ function NotFound(): JSX.Element {
         </p>
         <p className="error-message">
           Go back to the
-          <Link to="/" className="return-link">
+          <Link to={AppRoute.Main} className="return-link">
             <span>home page</span>
           </Link>
         </p>

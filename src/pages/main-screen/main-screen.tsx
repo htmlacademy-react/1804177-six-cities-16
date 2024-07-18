@@ -1,4 +1,6 @@
 import Card, {CardProps} from '../../components/card.tsx';
+import {Link} from 'react-router-dom';
+import {AppRoute} from '../../const.ts';
 
 type MainScreenProps = {
   dataOffers: CardProps[];
@@ -22,7 +24,7 @@ function MainScreen({dataOffers}: MainScreenProps): JSX.Element {
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                    <span className="header__favorite-count">3</span>
+                    <Link className="header__favorite-count" to={AppRoute.Favorites}>3</Link>
                   </a>
                 </li>
                 <li className="header__nav-item">
