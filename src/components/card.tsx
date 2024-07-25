@@ -40,7 +40,7 @@ function Card({data, onHandlerChangeIdActiveCard, onHandlerRemoveIdActiveCard, t
   data: CardProps;
   onHandlerChangeIdActiveCard?: () => void;
   onHandlerRemoveIdActiveCard?: () => void;
-  type: 'favorites' | 'near-places';
+  type?: 'favorites' | 'near-places';
 }): JSX.Element {
   const imgWidth: string = type === 'favorites' ? '150' : '260';
   const imgHeight: string = type === 'favorites' ? '110' : '200';

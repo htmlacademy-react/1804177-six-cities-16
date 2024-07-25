@@ -26,14 +26,14 @@ function App(): JSX.Element {
           path={AppRoute.Favorites}
           element={
             <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-              <Favorites dataOffers={Offers}/>
+              <Favorites/>
             </PrivateRoute>
           }
         >
         </Route>
         <Route
           path={AppRoute.Offer}
-          element={<Offer dataOffers={Offers}/>}
+          element={<Offer/>}
         >
         </Route>
         <Route
