@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {AppRoute, CardClassName} from '../const.ts';
+import {AppRoute} from '../const.ts';
 import {capitalizeFirstLetter} from '../utils.ts';
 
 export type CardProps = {
@@ -36,20 +36,20 @@ export type CardProps = {
   maxAdults: number;
 }
 
-function Card({data, onHandlerChangeIdActiveCard, onHandlerRemoveIdActiveCard, className}: {
+function Card({data, onHandlerChangeIdActiveCard, onHandlerRemoveIdActiveCard, type}: {
   data: CardProps;
   onHandlerChangeIdActiveCard?: () => void;
   onHandlerRemoveIdActiveCard?: () => void;
-  className?: string;
+  type: 'favorites' | 'near-places';
 }): JSX.Element {
-  const imgWidth: string = className === CardClassName.Favorites ? '150' : '260';
-  const imgHeight: string = className === CardClassName.Favorites ? '110' : '200';
+  const imgWidth: string = type === 'favorites' ? '150' : '260';
+  const imgHeight: string = type === 'favorites' ? '110' : '200';
 
   return (
     <article
-      className={`${className ? className : 'cities'}__card place-card`}
-      onMouseEnter={onHandlerChangeIdActiveCard}
-      onMouseLeave={onHandlerRemoveIdActiveCard}
+      className={`${type === 'favorites' ? 'favorites' : 'near-places'}__card place-card`}
+      onMouseEnter={onHandlerChangeIdActiveCard && onHandlerChangeIdActiveCard}
+      onMouseLeave={onHandlerRemoveIdActiveCard && onHandlerRemoveIdActiveCard}
     >
       <Link to={`${AppRoute.OfferStatic}/${data.id}`}>
         {data.isPremium
@@ -59,7 +59,7 @@ function Card({data, onHandlerChangeIdActiveCard, onHandlerRemoveIdActiveCard, c
           </div>
           :
           null}
-        <div className={`${className ? className : 'cities'}__image-wrapper place-card__image-wrapper`}>
+        <div className={`${type === 'favorites' ? 'favorites' : 'near-places'}__image-wrapper place-card__image-wrapper`}>
           <a href="#">
             <img className="place-card__image" src={data.previewImage} width={imgWidth} height={imgHeight}
               alt="Place image"

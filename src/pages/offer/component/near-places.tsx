@@ -1,5 +1,4 @@
 import Card, {CardProps} from '../../../components/card.tsx';
-import {CardClassName} from '../../../const.ts';
 
 type NearPlacesProps = {
   nearOfferCards: CardProps[];
@@ -13,7 +12,7 @@ function NearPlaces({nearOfferCards}: NearPlacesProps): JSX.Element {
       </h2>
       <div className="near-places__list places__list">
         {nearOfferCards.map((item: CardProps) =>
-          <Card key={item.id} data={item} className={CardClassName.Offer}/>)}
+          <Card key={item.id} data={item} type={'near-places'}/>)}
       </div>
     </section>
   );

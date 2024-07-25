@@ -1,18 +1,22 @@
 import {Fragment, useState} from 'react';
 
+type FormData = {
+  rating: '';
+  review: '';
+}
+
 function FormSubmit(): JSX.Element {
-  const [formDate, setFormDate] = useState({
+  const [formDate, setFormDate] = useState<FormData>({
     rating: '',
     review: '',
   });
 
-  const NUMBER_STARTS = [1, 2, 3, 4, 5];
+  const NUMBER_STARTS = [5, 4, 3, 2, 1];
 
-  const handleFieldChange = (evt: { target: { name: string; value: string } }): void => {
-    const {name, value} = evt.target;
+  const handleFieldChange = ({name, value}: { name: keyof FormData; value: string }): void => {
     setFormDate({...formDate, [name]: value});
-  };
 
+  };
   return (
     <form className="reviews__form form" action="#" method="post">
       <label className="reviews__label form__label" htmlFor="review">
@@ -24,13 +28,13 @@ function FormSubmit(): JSX.Element {
             <input
               className="form__rating-input visually-hidden"
               name="rating"
-              id="5-stars"
+              id={`${num}-stars`}
               type="radio"
-              onChange={handleFieldChange}
+              onChange={(evt) => handleFieldChange({name: 'rating', value: evt.target.value})}
               value={num}
             />
             <label
-              htmlFor="5-stars"
+              htmlFor={`${num}-stars`}
               className="reviews__rating-label form__rating-label"
               title="perfect"
             >
@@ -47,7 +51,7 @@ function FormSubmit(): JSX.Element {
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
-        onChange={handleFieldChange}
+        onChange={(evt) => handleFieldChange({name: 'review', value: evt.target.value})}
         value={formDate.review}
       />
       <div className="reviews__button-wrapper">

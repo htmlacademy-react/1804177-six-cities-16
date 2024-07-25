@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../const.ts';
+import {getFavotiteOfferCard} from '../utils.ts';
 
 function Layout({children} : {children: React.ReactNode}) {
   return (
@@ -19,7 +20,7 @@ function Layout({children} : {children: React.ReactNode}) {
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                    <Link className="header__favorite-count" to={AppRoute.Favorites}>3</Link>
+                    <Link className="header__favorite-count" to={AppRoute.Favorites}>{getFavotiteOfferCard.length}</Link>
                   </Link>
                 </li>
                 <li className="header__nav-item">

@@ -1,17 +1,11 @@
-import {CardProps} from '../../components/card.tsx';
 import Layout from '../../components/layout.tsx';
 import {useParams} from 'react-router-dom';
 import NotFound from '../../components/not-found.tsx';
 import OfferContainer from './component/offer-container.tsx';
 import NearPlaces from './component/near-places.tsx';
+import {getNearOfferCardById, getOfferById} from '../../utils.ts';
 
-type OfferOffersProps = {
-  dataOffers: CardProps[];
-}
-
-function Offer({dataOffers}: OfferOffersProps): JSX.Element {
-  const getOfferById = (offerId: string | undefined) => dataOffers.find((offer: CardProps): boolean => offer.id === offerId);
-  const getNearOfferCardById = (offerId: string | undefined) => dataOffers.filter((offer: CardProps): boolean => offer.id !== offerId).slice(0, 3);
+function Offer(): JSX.Element {
   const {id: offerId} = useParams();
   const currentOffer = getOfferById(offerId);
   const nearOfferCards = getNearOfferCardById(offerId);

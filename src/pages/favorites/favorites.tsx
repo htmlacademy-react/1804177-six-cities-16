@@ -1,15 +1,10 @@
 import {Link} from 'react-router-dom';
-import {AppRoute, CardClassName} from '../../const.ts';
+import {AppRoute} from '../../const.ts';
 import Card, {CardProps} from '../../components/card.tsx';
-import {getOfferCardByCity} from '../../utils.ts';
+import {getFavotiteOfferCard, getOfferCardByCity} from '../../utils.ts';
 import Layout from '../../components/layout.tsx';
 
-type FavotiteOffersProps = {
-  dataOffers: CardProps[];
-}
-
-function Favorites({dataOffers}: FavotiteOffersProps): JSX.Element {
-  const getFavotiteOfferCard = dataOffers.filter((offerCard: CardProps) => offerCard.isFavorite);
+function Favorites(): JSX.Element {
   const offerCardsByCity = getOfferCardByCity(getFavotiteOfferCard);
 
   return (
@@ -34,7 +29,7 @@ function Favorites({dataOffers}: FavotiteOffersProps): JSX.Element {
                         <Card
                           key={offerCard.id}
                           data={offerCard}
-                          className={CardClassName.Favorites}
+                          type={'favorites'}
                         />
                       ))}
                     </div>
