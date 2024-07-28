@@ -22,7 +22,7 @@ function Offer(): JSX.Element {
             <div className="offer__gallery-container container">
               <div className="offer__gallery">
                 {currentOffer.images.map((image: string) => (
-                  <div className="offer__image-wrapper" key={currentOffer.id}>
+                  <div className="offer__image-wrapper" key={currentOffer.id + currentOffer.price}>
                     <img className="offer__image" src={image} alt="Photo studio"/>
                   </div>
                 )
