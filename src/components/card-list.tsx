@@ -1,31 +1,32 @@
 import Card, {CardProps} from './card.tsx';
 
 type CardListProps = {
-  dataOffers: CardProps[];
-  onHover?: (id?: string) => void;
+  cityOffers: CardProps[];
+  onHover: (offer: CardProps | null) => void;
 };
 
-function CardList({ dataOffers, onHover }: CardListProps): JSX.Element {
+function CardList({ cityOffers, onHover }: CardListProps): JSX.Element {
 
   const changeIdActiveCard = (id: string): void => {
+    const currentCard = cityOffers.find((offer) => offer.id === id) || null;
     if (onHover) {
-      onHover(id);
+      onHover(currentCard);
     }
   };
 
   const removeIdActiveCard = (): void => {
     if (onHover) {
-      onHover();
+      onHover(null);
     }
   };
 
   return (
     <div className="cities__places-list places__list tabs__content">
-      {dataOffers.map((dataOffer: CardProps) => (
+      {cityOffers.map((offer: CardProps) => (
         <Card
-          key={dataOffer.id}
-          data={dataOffer}
-          onHandlerChangeIdActiveCard={() => changeIdActiveCard(dataOffer.id)}
+          key={offer.id}
+          data={offer}
+          onHandlerChangeIdActiveCard={() => changeIdActiveCard(offer.id)}
           onHandlerRemoveIdActiveCard={removeIdActiveCard}
         />
       ))}

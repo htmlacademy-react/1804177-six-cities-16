@@ -5,16 +5,16 @@ type FormDataProps = {
   review: '';
 }
 
-function FormSubmit(): JSX.Element {
-  const NUMBER_STARTS = [5, 4, 3, 2, 1];
+const NUMBER_STARTS = [5, 4, 3, 2, 1];
+const MAX_TEXTAREA_VALUES = 300;
+const MIN_TEXTAREA_VALUES = 50;
+const DEFAULT_FORM_DATE: FormDataProps = {
+  rating: undefined,
+  review: '',
+};
 
-  const MAX_TEXTAREA_VALUES = 300;
-  const MIN_TEXTAREA_VALUES = 50;
+function FormSubmit(): JSX.Element {
   const [isDisabledButton, setIsDisabledButton] = useState(true);
-  const DEFAULT_FORM_DATE: FormDataProps = {
-    rating: undefined,
-    review: '',
-  };
   const [formDate, setFormDate] = useState<FormDataProps>(DEFAULT_FORM_DATE);
 
   const handleFieldChange = ({name, value}: { name: keyof FormDataProps; value: string }): void => {

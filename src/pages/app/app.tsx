@@ -14,7 +14,7 @@ function App(): JSX.Element {
       <Routes>
         <Route
           path={AppRoute.Main}
-          element={<MainScreen dataOffers={Offers}/>}
+          element={<MainScreen offers={Offers}/>}
         >
         </Route>
         <Route

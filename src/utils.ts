@@ -7,10 +7,10 @@ type OffersByCityType = {
   [key: string]: CardProps[];
 }
 
-export const getOfferCardByCity = (dataOffers: CardProps[]) => {
+export const getOfferCardByCity = (offers: CardProps[]) => {
   const cardByCity: OffersByCityType = {};
 
-  for (const card of dataOffers) {
+  for (const card of offers) {
     if (!cardByCity[card.city.name]) {
       cardByCity[card.city.name] = [];
     }

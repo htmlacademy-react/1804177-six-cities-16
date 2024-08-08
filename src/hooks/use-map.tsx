@@ -1,7 +1,8 @@
-import leaflet, { Map as LeafletMap } from 'leaflet';
+import leaflet, { Map } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {useRef, useEffect, useState, MutableRefObject} from 'react';
-import {TileLayer} from '../../const.ts';
+import {TileLayers} from '../const.ts';
+
 
 type City = {
   latitude: number;
@@ -9,13 +10,13 @@ type City = {
   zoom: number;
 };
 
-function useMap(mapRef: MutableRefObject<HTMLDivElement | null>, city: City): LeafletMap | null {
-  const [map, setMap] = useState<LeafletMap | null>(null);
+function useMap(mapRef: MutableRefObject<HTMLDivElement | null>, city: City): Map | null {
+  const [map, setMap] = useState<Map | null>(null);
   const isRenderedRef = useRef(false);
 
   useEffect(() => {
     if (mapRef.current !== null && !isRenderedRef.current) {
-      const instance = leaflet.map(mapRef.current, {
+      const instance = new Map(mapRef.current, {
         center: {
           lat: city.latitude,
           lng: city.longitude,
@@ -24,11 +25,8 @@ function useMap(mapRef: MutableRefObject<HTMLDivElement | null>, city: City): Le
       });
 
       leaflet
-        .tileLayer(
-          TileLayer.UrlPattern,
-          {
-            attribution: TileLayer.Attribution,
-          },
+        .tileLayer(TileLayers.UrlPattern,
+          {attribution: TileLayers.Attribution,},
         )
         .addTo(instance);
 
