@@ -1,24 +1,42 @@
-import {Fragment, useState} from 'react';
+import {Fragment, SyntheticEvent, useState} from 'react';
 
-type FormData = {
-  rating: '';
+type FormDataProps = {
+  rating: number | undefined;
   review: '';
 }
 
+const NUMBER_STARTS = [5, 4, 3, 2, 1];
+const MAX_TEXTAREA_VALUES = 300;
+const MIN_TEXTAREA_VALUES = 50;
+const DEFAULT_FORM_DATE: FormDataProps = {
+  rating: undefined,
+  review: '',
+};
+
 function FormSubmit(): JSX.Element {
-  const [formDate, setFormDate] = useState<FormData>({
-    rating: '',
-    review: '',
-  });
+  const [isDisabledButton, setIsDisabledButton] = useState(true);
+  const [formDate, setFormDate] = useState<FormDataProps>(DEFAULT_FORM_DATE);
 
-  const NUMBER_STARTS = [5, 4, 3, 2, 1];
+  const handleFieldChange = ({name, value}: { name: keyof FormDataProps; value: string }): void => {
+    const newValue = name === 'rating' ? parseInt(value, 10) : value;
+    const newDate = {...formDate, [name]: newValue};
+    setFormDate(newDate);
 
-  const handleFieldChange = ({name, value}: { name: keyof FormData; value: string }): void => {
-    setFormDate({...formDate, [name]: value});
-
+    if (newDate.rating !== undefined &&
+      newDate.review.length < MAX_TEXTAREA_VALUES &&
+      newDate.review.length >= MIN_TEXTAREA_VALUES) {
+      setIsDisabledButton(false);
+    }
   };
+
+  const onSubmitChange = (evt: SyntheticEvent<HTMLFormElement, SubmitEvent>) => {
+    evt.preventDefault();
+    setFormDate(DEFAULT_FORM_DATE);
+    setIsDisabledButton(true);
+  };
+
   return (
-    <form className="reviews__form form" action="#" method="post">
+    <form className="reviews__form form" action="#" method="post" onSubmit={onSubmitChange}>
       <label className="reviews__label form__label" htmlFor="review">
         Your review
       </label>
@@ -30,6 +48,7 @@ function FormSubmit(): JSX.Element {
               name="rating"
               id={`${num}-stars`}
               type="radio"
+              checked={formDate.rating ? num === formDate.rating : false}
               onChange={(evt) => handleFieldChange({name: 'rating', value: evt.target.value})}
               value={num}
             />
@@ -64,7 +83,7 @@ function FormSubmit(): JSX.Element {
         <button
           className="reviews__submit form__submit button"
           type="submit"
-          disabled
+          disabled={isDisabledButton}
         >
           Submit
         </button>

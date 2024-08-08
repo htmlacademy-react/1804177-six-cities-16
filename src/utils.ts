@@ -1,5 +1,5 @@
 import {CardProps} from './components/card.tsx';
-import {Offers} from './offers.ts';
+import {Offers} from './mock/offers.ts';
 
 export const capitalizeFirstLetter = (word: string): string => word[0].toUpperCase() + word.slice(1);
 
@@ -7,10 +7,10 @@ type OffersByCityType = {
   [key: string]: CardProps[];
 }
 
-export const getOfferCardByCity = (dataOffers: CardProps[]) => {
+export const getOfferCardByCity = (offers: CardProps[]) => {
   const cardByCity: OffersByCityType = {};
 
-  for (const card of dataOffers) {
+  for (const card of offers) {
     if (!cardByCity[card.city.name]) {
       cardByCity[card.city.name] = [];
     }

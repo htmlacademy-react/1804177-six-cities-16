@@ -2,24 +2,24 @@ import {Link} from 'react-router-dom';
 import {AppRoute} from '../const.ts';
 import {capitalizeFirstLetter} from '../utils.ts';
 
+export type City = {
+  name: string;
+  location: Location;
+}
+
+export type Location = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+}
+
 export type CardProps = {
   id: string;
   title: string;
   type: string;
   price: number;
-  city: {
-    name: string;
-    location: {
-      latitude: number;
-      longitude: number;
-      zoom: number;
-    };
-  };
-  location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  };
+  city: City;
+  location: Location;
   isFavorite: boolean;
   isPremium: boolean;
   rating: number;
