@@ -2,13 +2,13 @@ import leaflet, {layerGroup, Marker} from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import {useRef, useEffect} from 'react';
 import useMap from '../hooks/use-map.tsx';
-import {CardProps} from './card.tsx';
 import {Markers} from '../const.ts';
+import {OffersTypes} from '../types/types.tsx';
 
 type MapProps = {
   baseClassName: string;
-  activeCard?: CardProps | null;
-  cityOffers: CardProps[];
+  activeCard?: OffersTypes | null;
+  cityOffers: OffersTypes[];
 }
 
 const defaultCustomIcon = leaflet.icon({
@@ -49,7 +49,7 @@ function Map({baseClassName = 'cities', activeCard, cityOffers}: MapProps): JSX.
   }, [map, cityOffers, activeCard]);
 
   return (
-    <section className={`${baseClassName}__map map`} style={{ height: '100%' }} ref={mapRef}/>
+    <section className={`${baseClassName}__map map`} style={{height: `${baseClassName === 'cities' ? '100%' : '50vh'}`}} ref={mapRef}/>
   );
 }
 
