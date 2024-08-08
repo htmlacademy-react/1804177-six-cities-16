@@ -1,4 +1,4 @@
-import {CardProps} from '../../components/card.tsx';
+import {CityTypes, OffersTypes} from '../../types/types.tsx';
 import Layout from '../../components/layout.tsx';
 import CardList from '../../components/card-list.tsx';
 import {useState} from 'react';
@@ -6,14 +6,14 @@ import Map from '../../components/map.tsx';
 import LocationList from './components/location-list.tsx';
 
 type MainScreenProps = {
-  offers: CardProps[];
+  offers: OffersTypes[];
 }
 
 function MainScreen({offers}: MainScreenProps): JSX.Element {
-  const [activeCard, setActiveCard] = useState<CardProps | null>(null);
-  const [activeCity, setActiveCity] = useState('Amsterdam');
+  const [activeCard, setActiveCard] = useState<OffersTypes | null>(null);
+  const [activeCity, setActiveCity] = useState<CityTypes>('Amsterdam');
   const [cityOffers, setCityOffers] = useState(offers.filter((offer) => offer.city.name === activeCity));
-  const handleCardHover = (offersHover: CardProps | null): void => {
+  const handleCardHover = (offersHover: OffersTypes | null): void => {
     setActiveCard(offersHover);
   };
 
